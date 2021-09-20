@@ -1,3 +1,6 @@
+/*
+    CPSC-351, Homework 01
+*/
 #include <sys/types.h>
 #include <stdio.h>
 #include <unistd.h>
