@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 int main(int argc, char** argv)
-{
+	{
 
 	/* Launch the program md5sum to compute the MD5 hash of file
 	 * /bin/ls. Also, get a file pointer representing the output
@@ -12,16 +12,16 @@ int main(int argc, char** argv)
 	FILE* progOutput = popen("md5sum /bin/ls", "r");
 
 	/* Make sure that popen succeeded */
-	if(!progOutput)
-	{
+	if (!progOutput)
+		{
 		perror("popen");
 		exit(-1);
-	}
+		}
 
 	/* The maximum output size */
-	#define MAX_OUTPUT_SIZE 1000
+#define MAX_OUTPUT_SIZE 1000
 
-	/* A buffer to store the output */
+/* A buffer to store the output */
 	char buffer[MAX_OUTPUT_SIZE];
 
 	/* Reset the buffer to all NULLS */
@@ -29,21 +29,21 @@ int main(int argc, char** argv)
 
 
 	/* Read the program output into the buffer */
-	if(fread(buffer, sizeof(char), sizeof(char) * MAX_OUTPUT_SIZE, progOutput) < 0)
-	{
+	if (fread(buffer, sizeof(char), sizeof(char) * MAX_OUTPUT_SIZE, progOutput) < 0)
+		{
 		perror("fread");
 		exit(-1);
-	}
+		}
 
 	/* Close the file pointer representing the program output */
-	if(pclose(progOutput) < 0)
-	{
+	if (pclose(progOutput) < 0)
+		{
 		perror("perror");
 		exit(-1);
-	}
+		}
 
 	fprintf(stdout, "Program output: %s\n", buffer);
 	fflush(stdout);
 
 	return 0;
-}
+	}
