@@ -65,6 +65,7 @@ void computeHash(const string& hashProgName)
  .
  .
  */
+ // FILE* progOutput = popen("md5sum /bin/ls", "r");
 	FILE* progOutput = popen("md5sum ./testskel.cpp", "r");
 	// FILE* progOutput = popen("md5sum" cmdLine, "r");
 
